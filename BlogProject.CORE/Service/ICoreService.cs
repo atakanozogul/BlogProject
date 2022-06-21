@@ -19,14 +19,17 @@ namespace BlogProject.CORE.Service
         //Linq ifadesi gönderiyoruz ve işlemi gerçekleştirirken
         //T tipindeki işlem için hepsini gerçekleştirsin
         //bool tipinde geri dönsün dedik çünkü tip vermemiz gerekiyor
-        bool RemoveAll(Expression<Func<T,bool>>exp);
+        bool RemoveAll(Expression<Func<T,bool>>exp); //belirli aralıktaki kısımları silme
         
         //Guid id olarak tek bir eleman getirsin istiyorsak böyle yazarız
         T GetByID(Guid id);
 
         T GetByDefault(Expression<Func<T, bool>> exp);
         List<T> GetDefault(Expression<Func<T, bool>> exp);
-        List<T> GetActive();
-        List<T> GetAll();
+        List<T> GetActive(); //aktif olanları bulma
+        List<T> GetAll(); //hepsini bulma
+        bool Activate(Guid id); //id ye göre aktif edildi mi durumu
+        bool Any(Expression<Func<T, bool>> exp); //linq sorgusuna göre hiç var mı yok mu ona bakabiliriz
+        int Save(); //kayıt sırasında kaç satır etkilendiğini belirttiğimiz kısım
     }
 }
