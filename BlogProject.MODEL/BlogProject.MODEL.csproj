@@ -6,8 +6,11 @@
 
   <ItemGroup>
     <Folder Include="Context\" />
-    <Folder Include="Entities\" />
     <Folder Include="Maps\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlogProject.CORE\BlogProject.CORE.csproj" />
   </ItemGroup>
 
 </Project>
