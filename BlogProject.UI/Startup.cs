@@ -25,7 +25,7 @@ namespace BlogProject.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation(); //Run time sýrasýnda deðiþikliklerin yapýlabilmesi ve yenileme yapýlarak deðiþmesi için yüklediðimiz paketin çalýþmasý için eklediðimiz kod
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConStr"))); //Sql baðlantýmýzý startup da 
         }
 

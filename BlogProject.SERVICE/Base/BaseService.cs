@@ -26,7 +26,7 @@ namespace BlogProject.SERVICE.Base
         {
             //GetById metoduna giderek seçtiğimiz nesneyi id sine göre bulma yapıyoruz
             T activated = GetByID(id);
-            activated.Status = CORE.Entity.Enums.Status.Active;
+            activated.Status = Status.Active;
             //status işlemini active çektikten sonra update metoduna gönderiyoruz
             return Update(activated);
         }
@@ -78,7 +78,7 @@ namespace BlogProject.SERVICE.Base
         public List<T> GetActive()
         {
             //Where şartı koyarak deleted olmayanları listelettik
-            return context.Set<T>().Where(x => x.Status != CORE.Entity.Enums.Status.Deleted).ToList();
+            return context.Set<T>().Where(x => x.Status != Status.Deleted).ToList();
         }
 
         public List<T> GetAll()
