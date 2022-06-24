@@ -2,6 +2,7 @@
 using BlogProject.CORE.Entity.Enums;
 using BlogProject.CORE.Service;
 using BlogProject.MODEL.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

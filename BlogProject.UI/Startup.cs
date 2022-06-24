@@ -1,4 +1,6 @@
+using BlogProject.CORE.Service;
 using BlogProject.MODEL.Context;
+using BlogProject.SERVICE.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +28,11 @@ namespace BlogProject.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation(); //Run time sýrasýnda deðiþikliklerin yapýlabilmesi ve yenileme yapýlarak deðiþmesi için yüklediðimiz paketin çalýþmasý için eklediðimiz kod
-            services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConStr"))); //Sql baðlantýmýzý startup da 
+            services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConStr"))); //Sql baðlantýmýzý startup da
+
+            //Service çaðýrýldýðýnda ne için çalýþtýðýný gösteriyoruz
+            //zayýf baðýmlý yaparak buraya tek tek addscoped yapmak yerine generic yapýyoruz
+            services.AddScoped(typeof(ICoreService<>), typeof(BaseService<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

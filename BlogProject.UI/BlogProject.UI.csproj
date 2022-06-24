@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlogProject.MODEL\BlogProject.MODEL.csproj" />
+    <ProjectReference Include="..\BlogProject.SERVICE\BlogProject.SERVICE.csproj" />
   </ItemGroup>
 
 </Project>
